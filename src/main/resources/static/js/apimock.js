@@ -17,9 +17,23 @@ apimock=(function(){
      var plano3 = {"author":"Drew","points":[{"x":30,"y":10},{"x":250,"y":55}],"name":"thirdBlueprint"}
 
 
+
 	return {
 		getBlueprintsByAuthor:function(authname,callback){
 			callback(mockdata[authname.toLowerCase()],mockdata[authname.toLowerCase()]);
+		},
+
+        getBlueprintsByNameAndAuthor:function(authname,bpname,callback){
+            //mockdata[authname] mockdata[bpname]
+            console.log(authname);
+            console.log(mockdata[authname]);
+            //mockdata[authname][bpname].find(function(e){return e.author===authname})
+			//callback(mockdata[authname][bpname],mockdata[authname][bpname]);
+			let blueprint = mockdata[authname].find(function (blueprint) {
+                            return blueprint.name === bpname;
+                        });
+                        callback(null, blueprint);
+
 		}
 	}
 
