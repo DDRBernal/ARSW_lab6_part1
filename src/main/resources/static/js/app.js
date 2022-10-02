@@ -3,55 +3,63 @@ var app = (function () {
   let authorName = "";
   let author;
 
-  var createTableBlueprints = function (blueprints) {
-    // private
-    let authorName = undefined;
-    let table = [];
-
-
-  };
-
+    /**
+     * This function obtains the name of the author typed in the search bar
+     * also evaluate if the name is not valid or doesn't exists
+     * if is valid, will add the data of the author in the table
+     */
     function getNameAuthorBlueprints() {
-           author = $("#author").val();
-           if (author === "") {
-               alert("Incorrect name !");
-           } else {
-               apimock.getBlueprintsByAuthor(author, (req, resp) => {
-                   parseData(resp);
-               });
-           }
+       author = $("#author").val();
+       if (author === "") {
+           alert("Incorrect name !");
+       } else {
+           apiclient.getBlueprintsByAuthor(author, (req, resp) => {
+               createTableData(resp);
+           });
+       }
     }
 
+    /**
+     * This function obtains the name of the author typed in the search bar
+     * also evaluate if the name is not valid or doesn't exists
+     * if is valid, will draw the lines with the given points
+     */
     function getBlueprintsByNameAndAuthor(author,name) {
-            console.log(author+" "+name);
-               if (author === "") {
-                   alert("Incorrect name !");
-               } else {
+       if (author === "") {
+           alert("Incorrect name !");
+       } else {
+        apiclient.getBlueprintsByNameAndAuthor(author,name, (req, resp) => {
+                draw(resp);
+         });
+       }
+    }
 
-                apimock.getBlueprintsByNameAndAuthor(author,name, (req, resp) => {
-                        draw(resp);
-                             });
-               }
-        }
-
+    /**
+     * This function obtains the name of the author typed in the search bar
+     * also evaluate if the name is not valid or doesn't exists
+     * if is valid, will draw the lines with the given points
+     */
     function draw(data){
         const points = data.points;
-        console.log("points "+ points)
         var c = document.getElementById("myCanvas");
         var ctx = c.getContext("2d");
         ctx.clearRect(0, 0, c.width, c.height);
         ctx.restore();
         ctx.beginPath();
         for (let i = 0; i<points.length-1 ; i++){
-        console.log(points[i].x);
             ctx.moveTo(points[i].x, points[i].y);
             ctx.lineTo(points[i+1].x, points[i+1].y);
             ctx.stroke();
         }
     }
 
-    function parseData(data) {
-        let table = $("#table-blueprints tbody");
+    /**
+     * This function obtains the name of the author typed in the search bar
+     * also evaluate if the name is not valid or doesn't exists
+     * if is valid, will draw the lines with the given points
+     */
+    function createTableData(data) {
+        let table = $("#fl-table tbody");
         table.empty();
         if (data !== undefined) {
           $("#author-name").text(author + "'s " + "blueprints:");
@@ -62,10 +70,6 @@ var app = (function () {
               }
           });
           datanew.forEach(({name, puntos}) => {
-          apimock.getBlueprintsByNameAndAuthor($("#author").val(),name, (req, resp) => {
-                                 console.log(resp);
-                  });
-
           table.append(
                           `<tr>
                             <td>${name}</td>
@@ -82,18 +86,6 @@ var app = (function () {
             $("#totalPoints").empty();
         }
     }
-
-
-
-
-  var setAuthorName = function (newAuthorName) {
-    authorName = newAuthorName;
-    // public
-  };
-
-  var anotherMethod = function () {
-    // public
-  };
 
   return {
     getNameAuthorBlueprints: getNameAuthorBlueprints,

@@ -3,7 +3,16 @@
 
 <style>
 table, th, td {
-  border:1px solid black;
+    border:5px solid black;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 50%;
+    white-space: nowrap;
+    background-color: white;
+    background: #F8F8F8;
 }
 </style>
 <head>
@@ -17,49 +26,40 @@ table, th, td {
           href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
 
     <script src="js/apimock.js"></script>
+    <script src="js/apiclient.js"></script>
     <script src="js/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" media=”screen” />
 
-
-
-    <div >
-
-            <p class="author-name" id="title">Author:
-            <input id="author" placeholder="Type a name for ex: JhonConnor" type="text">
-            <button onclick="app.getNameAuthorBlueprints()">Get blueprints</button>
-            </p>
-
+    <div>
+        <p class="author-name" id="title">Author:
+        <input id="author" placeholder="Type a name for ex: JhonConnor" type="text">
+        <button onclick="app.getNameAuthorBlueprints()">Get blueprints</button>
+        </p>
     </div>
 
-
     <div >
-        <div >
-            <div >
-                <a class="author-name" id="author-name">Blueprints:</a>
-            </div>
-            <div >
-                <table class="table-blueprints" id="table-blueprints">
-                    <thead>
-                    <tr>
-                        <th>Blueprint name</th>
-                        <th>Number of points</th>
-                        <th>Open</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                    </tbody>
-                </table>
-                <a >Total user points: </a>
-                <a class="totalPoints" id="totalPoints"> 0 </a>
-            </div>
-        </div>
+        <a class="author-name" id="author-name">Blueprints:</a>
     </div>
+    <div class="table-wrapper">
+        <table class="fl-table" id="fl-table">
+            <thead>
+            <tr>
+                <th>Blueprint name</th>
+                <th>Number of points</th>
+                <th>Open</th>
+            </tr>
+            </thead>
+            <tbody>
 
+            </tbody>
+        </table>
+        <a >Total user points: </a>
+        <a class="totalPoints" id="totalPoints"> 0 </a>
+    </div>
 
     <div>
         <canvas id="myCanvas" width="510" height="300" style="border: solid black 5px;"></canvas>
     </div>
-
 
 </head>
 <body>
