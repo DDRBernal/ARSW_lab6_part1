@@ -13,7 +13,7 @@ var app = (function () {
        if (author === "") {
            alert("Incorrect name !");
        } else {
-           apiclient.getBlueprintsByAuthor(author, (req, resp) => {
+           apimock.getBlueprintsByAuthor(author, (req, resp) => {
                createTableData(resp);
            });
        }
@@ -28,7 +28,7 @@ var app = (function () {
        if (author === "") {
            alert("Incorrect name !");
        } else {
-        apiclient.getBlueprintsByNameAndAuthor(author,name, (req, resp) => {
+        apimock.getBlueprintsByNameAndAuthor(author,name, (req, resp) => {
                 draw(resp);
          });
        }

@@ -10,10 +10,10 @@ apimock=(function(){
 	 {author:"maryweyland","points":[{"x":140,"y":140},{"x":115,"y":115},{"x":140,"y":140},{"x":140,"y":140}],"name":"gear2"}];
 
 	mockdata["jay"] = [
-	 {author:"Jay","points":[{"x":140,"y":140},{"x":115,"y":115}],"name":"firsblueprint"},
+	 {author:"jay","points":[{"x":140,"y":140},{"x":115,"y":115}],"name":"firsblueprint"},
 	 {author:"jay","points":[{"x":70,"y":110},{"x":200,"y":110},{"x":135,"y":170},{"x":70,"y":110},{"x":205,"y":110}],"name":"TriangleZaZ"}]
-     var plano2 = {"author":"Zoe","points":[{"x":140,"y":140},{"x":115,"y":115}],"name":"secondBlueprint"};
-     var plano3 = {"author":"Drew","points":[{"x":30,"y":10},{"x":250,"y":55}],"name":"thirdBlueprint"}
+     var plano2 = {"author":"zoe","points":[{"x":140,"y":140},{"x":115,"y":115}],"name":"secondBlueprint"};
+     var plano3 = {"author":"drew","points":[{"x":30,"y":10},{"x":250,"y":55}],"name":"thirdBlueprint"}
 
 	return {
 		getBlueprintsByAuthor:function(authname,callback){
