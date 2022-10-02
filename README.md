@@ -141,3 +141,6 @@ En las lineas mostrradas unicamente basta con hacer el llamado a apimock o apicl
 ![image](https://user-images.githubusercontent.com/46855679/193436273-7da62c7d-8c2e-4e69-b8ba-ad820cbdc810.png)
 
 14. Revise la [documentación y ejemplos de los estilos de Bootstrap](https://v4-alpha.getbootstrap.com/examples/) (ya incluidos en el ejercicio), agregue los elementos necesarios a la página para que sea más vistosa, y más cercana al mock dado al inicio del enunciado.
+
+![image](https://user-images.githubusercontent.com/46855679/193479821-58c50471-20a4-47f6-83af-a38c861aa4c8.png)
+
